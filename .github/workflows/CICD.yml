@@ -18,6 +18,5 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
-          port: 33
-          source: '.maintenance'
-          target: ${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}
+          source: 'themes/gamestore'
+          target: '/home/livegam1/cicdtest/dev.witchergame.ru'
