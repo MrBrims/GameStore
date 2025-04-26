@@ -29,7 +29,6 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
-          port: ${{ secrets.SSH_PORT }}
           source: './wordpress.zip, wpcontent.zip'
           target: ${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}
 
@@ -39,7 +38,6 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
-          port: ${{ secrets.SSH_PORT }}
           source: '.maintenance'
           target: ${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}
 
@@ -49,7 +47,6 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
-          port: ${{ secrets.SSH_PORT }}
           script: |
             find "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}" -type f -name "*.php" ! -name "wp-config.php" -delet
             rm - r "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wp-admin/" "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wp-admin/"
@@ -63,7 +60,6 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
-          port: ${{ secrets.SSH_PORT }}
           script: |
             rm -rf "{{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wp-content/plugins" "{{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wp-content/mu-plugins" "{{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wp-content/themes"
             unzip -o "{{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wpcontent.zip" -d "{{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wp-content/"
@@ -74,7 +70,6 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
-          port: ${{ secrets.SSH_PORT }}
           script: |
             rm -f "{{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/.maintenance"
             rm -f "{{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wpcontent.zip"
