@@ -51,11 +51,11 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            find "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.rur' }}" -type f -name "*.php" ! -name "wp-config.php" -delete
-            rm -r "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.rur' }}/wp-admin/" "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.rur' }}/wp-includes/"
-            unzip -o "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wordpress.zip" -d "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.rur' }}/"
-            mv "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.rur' }}/wordpress"/* "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.rur' }}/"
-            rm -r "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.rur' }}/wordpress"
+            find "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}" -type f -name "*.php" ! -name "wp-config.php" -delete
+            rm -r "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wp-admin/" "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wp-includes/"
+            unzip -o "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wordpress.zip" -d "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/"
+            mv "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wordpress"/* "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/"
+            rm -r "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wordpress"
 
       - name: Update Plugins and Theme
         uses: appleboy/ssh-action@v1.0.3
