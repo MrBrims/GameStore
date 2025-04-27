@@ -65,8 +65,8 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            rm -rf "{{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wp-content/plugins" "{{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wp-content/mu-plugins" "{{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wp-content/themes"
-            unzip -o "{{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wpcontent.zip" -d "{{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wp-content/"
+            rm -rf "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wp-content/plugins" "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wp-content/mu-plugins" "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wp-content/themes"
+            unzip -o "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wpcontent.zip" -d "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wp-content/"
 
       - name: Disable Maintenance Mode and Remove zips
         uses: appleboy/ssh-action@v1.0.3
