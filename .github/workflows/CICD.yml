@@ -76,6 +76,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            rm -f "{{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/.maintenance"
-            rm -f "{{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wpcontent.zip"
-            rm -f "{{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wordpress.zip"
+            rm -f "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/.maintenance"
+            rm -f "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wpcontent.zip"
+            rm -f "${{ github.event_name == 'push' && '/home/livegam1/cicdtest/dev.witchergame.ru' || '/home/livegam1/cicdtest/live.witchergame.ru' }}/wordpress.zip"
