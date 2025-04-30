@@ -29,6 +29,38 @@ function gamestore_mime_types($mimes)
 }
 add_filter('upload_mimes', 'gamestore_mime_types');
 
+# Fix MIME type for SVG files
+function fix_svg_mime_type($data, $file, $filename, $mimes, $real_mime = '')
+{
+
+	// WP 5.1 +
+	if (version_compare($GLOBALS['wp_version'], '5.1.0', '>=')) {
+		$dosvg = in_array($real_mime, ['image/svg', 'image/svg+xml']);
+	} else {
+		$dosvg = ('.svg' === strtolower(substr($filename, -4)));
+	}
+
+	// mime type was zeroed out, we'll fix it
+	// and we'll also check the user's authorization
+	if ($dosvg) {
+
+		// let's authorize
+		if (current_user_can('manage_options')) {
+
+			$data['ext']  = 'svg';
+			$data['type'] = 'image/svg+xml';
+		}
+		// ban
+		else {
+			$data['ext']  = false;
+			$data['type'] = false;
+		}
+	}
+
+	return $data;
+}
+add_filter('wp_check_filetype_and_ext', 'fix_svg_mime_type', 10, 5);
+
 // Fix SVG display in media library
 function gamestore_fix_svg()
 {
