@@ -2,8 +2,11 @@
 function gamestore_styles()
 {
 	wp_enqueue_style('gamestore-general', get_template_directory_uri() . '/assets/css/gamestore.css', [], wp_get_theme()->get('Version'));
-
 	wp_enqueue_script('gamestore-theme-related', get_template_directory_uri() . '/assets/js/gamestore-theme-related.js', [], wp_get_theme()->get('Version'), true);
+
+	// Swiper
+	wp_enqueue_style('swiper-gamestore-css', get_template_directory_uri() . '/assets/css/swiper-bundle.min.css', [], wp_get_theme()->get('Version'));
+	wp_enqueue_script('swiper-gamestore-js', get_template_directory_uri() . '/assets/js/swiper-bundle.min.js', [], wp_get_theme()->get('Version'), true);
 }
 add_action('wp_enqueue_scripts', 'gamestore_styles');
 
