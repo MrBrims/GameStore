@@ -1,0 +1,31 @@
+.wp-block-blocks-gamestore-games-line {
+	max-width: 100vw !important;
+
+	.games-line-container {
+		width: 100vw;
+		overflow: hidden;
+		position: relative;
+		margin-right: calc(var(--wp--style--root--padding-right) * -1) !important;
+		margin-left: calc(var(--wp--style--root--padding-left) * -1) !important;
+
+		>.swiper-wrapper {
+			display: flex;
+			transition: transform 3500ms linear;
+			transition-timing-function: linear;
+		}
+
+		.game-item {
+			width: 267px;
+			height: 403px;
+			position: relative;
+			margin-inline: 4px;
+
+			img {
+				border-radius: 8px;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+}

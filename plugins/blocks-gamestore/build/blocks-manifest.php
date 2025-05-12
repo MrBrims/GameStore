@@ -1,6 +1,34 @@
 <?php
 // This file is generated. Do not modify it manually.
 return array(
+	'block-games-line' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'blocks-gamestore/games-line',
+		'version' => '0.1.0',
+		'title' => 'Games line',
+		'category' => 'gamestore',
+		'icon' => 'layout',
+		'description' => 'Dynamic Games Line',
+		'example' => array(
+			
+		),
+		'supports' => array(
+			'html' => false
+		),
+		'attributes' => array(
+			'count' => array(
+				'type' => 'number',
+				'default' => 12
+			)
+		),
+		'textdomain' => 'blocks-gamestore',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'render' => 'file:./render.php',
+		'viewScript' => 'file:./view.js'
+	),
 	'block-header' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
