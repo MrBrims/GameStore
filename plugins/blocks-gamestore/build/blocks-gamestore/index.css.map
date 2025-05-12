@@ -1,1 +1,1 @@
-{"version":3,"file":"blocks-gamestore/index.css","mappings":";;;AAAA;EACC;AACD,C","sources":["webpack://blocks-gamestore/./src/blocks-gamestore/editor.scss"],"sourcesContent":[".wp-block-create-block-blocks-gamestore {\n\tborder: 1px dotted #f00;\n}"],"names":[],"sourceRoot":""}
+{"version":3,"file":"blocks-gamestore/index.css","mappings":";;;AAAA;EACC;AACD,C","sources":["webpack://blocks-gamestore/./src/blocks-gamestore/editor.scss"],"sourcesContent":[".wp-block-create-block-blocks-gamestore {\r\n\tborder: 1px dotted #f00;\r\n}"],"names":[],"sourceRoot":""}
